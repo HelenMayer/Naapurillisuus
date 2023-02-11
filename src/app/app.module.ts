@@ -13,7 +13,7 @@ import { HelperDashboardComponent } from './helper-dashboard/helper-dashboard.co
 import { MyTasksComponent } from './my-tasks/my-tasks.component'
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ClientFormComponent } from './client-form/client-form.component';
-import { ClientTasksComponent } from './client-tasks/client-tasks.component'
+import { ClientTasksComponent } from './client-tasks/client-tasks.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +28,14 @@ import { ClientTasksComponent } from './client-tasks/client-tasks.component'
     MyTasksComponent, 
     ContactFormComponent,
     ClientFormComponent,
-    ClientTasksComponent 
+    ClientTasksComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbModule
-
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

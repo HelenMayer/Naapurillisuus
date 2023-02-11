@@ -1,0 +1,53 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/3rdpartylicenses.txt",
+      "PackagePath": "staticwebassets/3rdpartylicenses.txt"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/assets/Logo_naapuri.png",
+      "PackagePath": "staticwebassets/assets/Logo_naapuri.png"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/index.html",
+      "PackagePath": "staticwebassets/index.html"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/main.js",
+      "PackagePath": "staticwebassets/main.js"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/polyfills.js",
+      "PackagePath": "staticwebassets/polyfills.js"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/runtime.js",
+      "PackagePath": "staticwebassets/runtime.js"
+    },
+    {
+      "Id": "/Users/s2200701/Desktop/Naapurillisuus/wwwroot/styles.css",
+      "PackagePath": "staticwebassets/styles.css"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.Naapurillisuus.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.build.Naapurillisuus.props",
+      "PackagePath": "build\\Naapurillisuus.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Naapurillisuus.props",
+      "PackagePath": "buildMultiTargeting\\Naapurillisuus.props"
+    },
+    {
+      "Id": "obj/Debug/net7.0/staticwebassets/msbuild.buildTransitive.Naapurillisuus.props",
+      "PackagePath": "buildTransitive\\Naapurillisuus.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

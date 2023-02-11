@@ -1,4 +1,9 @@
 <app-header></app-header>
 <!-- <app-main-screen></app-main-screen> -->
+<tr *ngFor="let client of clients">
+    <td>{{client.firstName}}</td>
+    <td>{{client.lastName}}</td>
+    <td>{{client.address}}</td>
+</tr>
 <router-outlet></router-outlet>
 <app-footer></app-footer>

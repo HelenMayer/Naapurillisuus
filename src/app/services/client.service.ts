@@ -16,6 +16,7 @@ export class ClientService {
   public getClients() : Client[]
    {
     let person = new Client();
+    person.Id = 1;
     person.firstName = "Bekki";
     person.lastName = "Järvi";
     person.emailAddress = "12345@gmail.com";

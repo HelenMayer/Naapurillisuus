@@ -6,6 +6,7 @@ namespace Naapurillisuus.Controllers;
 [Route("api/Client")]
 public class ClientsController : ControllerBase
 {
+
     [HttpGet] 
     public IEnumerable<Client> Get()
     {

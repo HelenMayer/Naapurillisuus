@@ -23,8 +23,6 @@
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/Naapurillisuus.csproj.CoreCompileInputs.cache
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/Naapurillisuus.MvcApplicationPartsAssemblyInfo.cs
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/Naapurillisuus.MvcApplicationPartsAssemblyInfo.cache
-/Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/Naapurillisuus.RazorAssemblyInfo.cache
-/Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/Naapurillisuus.RazorAssemblyInfo.cs
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/staticwebassets/msbuild.Naapurillisuus.Microsoft.AspNetCore.StaticWebAssets.props
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/staticwebassets/msbuild.build.Naapurillisuus.props
 /Users/s2200701/Desktop/Naapurillisuus/obj/Debug/net7.0/staticwebassets/msbuild.buildMultiTargeting.Naapurillisuus.props

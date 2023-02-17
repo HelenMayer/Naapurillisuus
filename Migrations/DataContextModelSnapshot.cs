@@ -53,11 +53,13 @@ namespace Naapurillisuus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("phoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("phoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("zip")
-                        .HasColumnType("int");
+                    b.Property<string>("zip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

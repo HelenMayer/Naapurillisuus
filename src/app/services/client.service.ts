@@ -9,19 +9,29 @@ import { Client } from '../Models/Client';
 })
 export class ClientService {
 
-  private url = "Client";
+  private url = "Clients";
 
   constructor(private http : HttpClient) { }
 
-  public getClients() : Client[]
+// возвращает список клиентов
+  public getClients() : Observable<Client[]> 
    {
-    let person = new Client();
-    person.Id = 1;
-    person.firstName = "Bekki";
-    person.lastName = "Järvi";
-    person.emailAddress = "12345@gmail.com";
-    person.password = "1234564243";
-    console.log(person);
-    return [person]
+    return this.http.get<Client[]>(`${environment.apiUrl}/${this.url}`);
   }
-}
+
+  public createClient(client : Client) : Observable<Client[]> 
+  {
+   return this.http.post<Client[]>(`${environment.apiUrl}/${this.url}`, client);
+  }
+
+  public updateClient(client : Client) : Observable<Client[]> 
+   {
+    return this.http.put<Client[]>(`${environment.apiUrl}/${this.url}`, client);
+  }
+
+  public deleteClient(client : Client) : Observable<Client[]> 
+   {
+    return this.http.delete<Client[]>(`${environment.apiUrl}/${this.url}/${client.Id}`);
+  }
+ }
+

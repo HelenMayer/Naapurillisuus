@@ -4,23 +4,23 @@
         <div class="row g-3">
           <div class="col-sm-6">
             <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+            <input type="text" class="form-control" id="firstName" placeholder="" required="">
           </div>
           <div class="col-sm-6">
             <label for="lastName" class="form-label">Last name</label>
             <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
           </div>
           <div class="col-12">
-            <label for="lastName" class="form-label">Social security number</label>
-              <input type="text" class="form-control" id="username" placeholder="XXXXXX-XXXX" required="">
+            <label for="lastName" class="form-label">Password</label>
+              <input type="text" class="form-control" id="username" placeholder="XXXXXXXXXX" required="">
             </div>
             <div class="col-sm-6">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="name@example.com">
+                <input type="text" class="form-control"  id="email" placeholder="name@example.com">
               </div>
               <div class="col-sm-6">
                 <label for="phone" class="form-label">Phone number</label>
-                <input type="tel" class="form-control" id="phone" placeholder="+358-XX-XXX-XX-XX">
+                <input type="number" class="form-control"  id="phone" placeholder="+358-XX-XXX-XX-XX">
               </div>
           </div>
           <hr class="my-4">
@@ -35,7 +35,7 @@
           <div class="col-md-5">
             <label for="country" class="form-label">City</label>
             <select class="form-select" id="country" required="">
-              <option value="">Choose...</option>
+              <option class="form-select-value" id="select-value" value="">Choose...</option>
               <option>Helsinki</option>
               <option>Espoo</option>
               <option>Vantaa</option>
@@ -56,7 +56,7 @@
   
         <hr class="my-4">
   
-        <button [routerLink]="['','client-tasks']" class="w-100 btn btn-lg" type="submit"> Ask for help</button>
+        <button  class="w-100 btn btn-lg" type="submit" (click)="createClient()"> Ask for help</button>
       </form>
   </section>
   

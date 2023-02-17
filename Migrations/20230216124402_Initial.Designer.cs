@@ -11,8 +11,8 @@ using Naapurillisuus.Data;
 namespace Naapurillisuus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230212182625_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20230216124402_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,11 +56,13 @@ namespace Naapurillisuus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("phoneNumber")
-                        .HasColumnType("int");
+                    b.Property<string>("phoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("zip")
-                        .HasColumnType("int");
+                    b.Property<string>("zip")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

@@ -14,6 +14,7 @@ import { MyTasksComponent } from './my-tasks/my-tasks.component'
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientTasksComponent } from './client-tasks/client-tasks.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { ClientTasksComponent } from './client-tasks/client-tasks.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
     
   ],
   providers: [],

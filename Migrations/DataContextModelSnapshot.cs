@@ -45,6 +45,10 @@ namespace Naapurillisuus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("helpOptions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("lastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -54,6 +58,10 @@ namespace Naapurillisuus.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -2,6 +2,7 @@ namespace Naapurillisuus
 {
     public class Client {
         public int Id {get; set;} 
+        public string role {get; set;} = string.Empty;
         public string firstName {get; set;} = string.Empty;
         public string lastName {get; set;} = string.Empty;
         public string email {get; set;} = string.Empty;
@@ -10,6 +11,7 @@ namespace Naapurillisuus
         public string address {get; set;} = string.Empty;
         public string city {get; set;} = string.Empty;
         public string zip {get; set;}  = string.Empty;
+        public string helpOptions {get; set;}  = string.Empty;
 
     }
 }

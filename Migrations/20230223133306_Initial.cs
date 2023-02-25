@@ -16,6 +16,7 @@ namespace Naapurillisuus.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     firstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     lastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -23,7 +24,8 @@ namespace Naapurillisuus.Migrations
                     phoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     address = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     city = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    zip = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    zip = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    helpOptions = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

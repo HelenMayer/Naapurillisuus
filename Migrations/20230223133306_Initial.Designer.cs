@@ -11,7 +11,7 @@ using Naapurillisuus.Data;
 namespace Naapurillisuus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230216124402_Initial")]
+    [Migration("20230223133306_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -48,6 +48,10 @@ namespace Naapurillisuus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("helpOptions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("lastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -57,6 +61,10 @@ namespace Naapurillisuus.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("role")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

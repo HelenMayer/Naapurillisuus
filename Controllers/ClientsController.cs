@@ -25,7 +25,6 @@ public class ClientsController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<List<Client>>> CreateClient(Client person)
     {
-
       _context.Clients.Add(person);
       await _context.SaveChangesAsync();
 

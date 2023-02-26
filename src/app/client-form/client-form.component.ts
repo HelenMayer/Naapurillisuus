@@ -34,7 +34,10 @@ export class ClientFormComponent implements OnInit {
     client.city = document.getElementsByTagName("select")[0].value;
     client.zip = document.getElementsByTagName("input")[6].value;
 
-    if (this.clients.find(searchClient => searchClient.email == client.email) == null || this.clients.find(searchClient => searchClient.password == client.password) == null ) {
+    if (client.address=="" || client.city=="" || client.email=="" || client.firstName=="" || client.lastName=="" || client.password=="" || client.phoneNumber=="" || client.zip=="" ) {
+      alert("Fill in all data!")
+    }
+    else if (this.clients.find(searchClient => searchClient.email == client.email) == null || this.clients.find(searchClient => searchClient.password == client.password) == null ) {
       this.ClientService.createClient(client).subscribe((clients : Client[]) => this.clientsUpdate.emit(clients))
       let modal = document.getElementById("modalWindowSuccess");
       modal.style.display = "block"; 

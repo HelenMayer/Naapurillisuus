@@ -1,17 +1,107 @@
-.btn {
-  background-color: #46a44b;
-  color: white;
-  border: none;
-  width: 40%;
+.main-block{
+  min-height: 40vh;
 }
-.btn-outline {
-  background-color: #fe9d10;
+.header-text {
+  margin-top: 100px;
+  color: var(--brown);
+  margin-bottom: 2rem;
+}
+.text {
+  font-size: 1.3rem;
+}
+.volunteer {
+  background-color: var(--main-volunteer2);
   color: white;
   border: none;
+  font-size: 1.4rem;
+  width: 30%;
+}
+.client {
+  background-color: var(--main-client);
+  color: white;
+  border: none;
+  font-size: 1.4rem;
+  width: 30%;
+}
+.btns {
+  margin-top: 5rem;
+}
+.icons {
+  width: 25%;
+  text-align: center;
+}
+.steps {
+
+  margin-bottom: 5rem;
+}
+.steps-text {
+  font-size: 1.2rem;
+}
+.bi-exclamation-circle,
+.bi-chat-dots,
+.bi-hand-thumbs-up {
+  color: var(--main-color);
+  font-size: 3rem;
+}
+.bi-exclamation-circle:hover,
+.bi-chat-dots:hover,
+.bi-hand-thumbs-up:hover {
+  color: var(--brown);
+  font-size: 3rem;
 }
 
+
+@media only screen and (max-width: 768px) {
+  .header-text {
+    margin-top: 0;
+  }
+  .btn {
+    width: 50%;
+  }
+}
 @media only screen and (max-width: 425px) {
   .btn {
     width: 100%;
+  }
+  .icons {
+    width: 90%;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .container{
+    max-width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+  .icons {
+    width: 90%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container{
+    max-width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+  .icons {
+    width: 90%;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 700px) {
+  .container{
+    max-width: 100%;
+  }
+  .btn {
+    width: 100%;
+  }
+  .icons {
+    width: 90%;
+    text-align: center;
   }
 }

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+:root {
+    --send: #fcc777;
+    --take: #d5ff87;;
+    --brown: #504b43;
+  
+    /* Second  */
+   --main-color: #6951e0;
+   --main-client: #F4B860;
+   --main-volunteer: #077097;
+   --main-volunteer2: #99c24d;  /* #7DDE92 */
+   --sign-in: #F4B860;
+   --clients-btns:#dad3fe;
+   /* tasks */
+   --emergency: #fee7f8;
+   --shopping: #ecfdeb;  /* #bccca3 */
+   --pets: #fef8ea;  /* #f8c8ba */
+   --others: #eaf4fd;
+  
+  }
+  

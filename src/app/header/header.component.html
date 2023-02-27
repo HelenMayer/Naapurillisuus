@@ -1,17 +1,17 @@
 <section class="container">
   <header
-    class="d-flex flex-wrap align-items-center justify-content-around justify-content-md-between mb-4 border-bottom"
+    class="d-flex align-items-center justify-content-between justify-content-md-between border-bottom"
   >
     <a
       [routerLink]="['']"
-      class="logo d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+      class="logo col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
     >
       <img [src]="imgUrl" alt="" />
     </a>
 
-    <article class="col-md-3 text-end">
-     <!--  <button type="button" class="btn  me-2">Login</button> -->
-      <button [routerLink]="['sign-in']" type="button" class="btn">Login</button>
+    <article class="sign_in_main">
+      <button id="login" [routerLink]="['sign-in']" class="btn">Login</button>
+      <button id="logout"  [routerLink]= "['sign-in']" class="btn">Logout</button>
     </article>
   </header>
 </section>

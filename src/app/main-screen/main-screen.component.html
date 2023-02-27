@@ -1,24 +1,60 @@
-<main>
-  <div class="px-4 py-5 my-5 text-center">
-    <h1 class="display-5 fw-bold">
-      The best place to make good things for your neighbour
-    </h1>
-    <div class="col-lg-6 mx-auto">
-      <p class="lead mb-4">
-        Here you can help to your neighbor with some simple things and make
-        their lifes better. You can help with some shopping, take a walk with
-        their pets or something else. Let's do our life better to help each
-        other.
-      </p>
-      <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
-        <button [routerLink]="['helper-form']" type="button" class="btn btn-lg px-4 py-3">
+<section class="container">
+  <main class="main">
+    <section class="px-4 my-5 text-center main-block">
+      <article class="text-items mt-5">
+        <h1 class="display-5 fw-bold header-text">
+          The best place to make good things for your neighbour
+        </h1>
+        <p class="col-lg-9 mx-auto text">
+          Here you can help to your neighbor with some simple things and make
+          their lifes better. You can help with some shopping, take a walk with
+          their pets or something else. Let's do our life better to help each
+          other. Here you can help to your neighbor with some simple things and
+          make their lifes better.
+        </p>
+      </article>
+
+      <article
+        class="d-grid gap-5 d-sm-flex justify-content-sm-center btns mt-5"
+      >
+        <button [routerLink]="['helper-form']" type="button" class="btn volunteer btn-lg px-4 py-3">
           I want to help
         </button>
-        <ng-content></ng-content>
-        <button [routerLink]="['client-form']" type="button" class="btn btn-outline btn-lg px-4 py-3">
-         I need help
+        <button
+          [routerLink]="['client-form']"
+          type="button"
+          class="btn client btn-lg px-4 py-3"
+        >
+          I need help
         </button>
-      </div>
-    </div>
-  </div>
-</main>
+      </article>
+    </section>
+  </main>
+<hr>
+  <section class="steps d-flex flex-wrap justify-content-center gap-5 mt-4">
+    <article class="sad-face icons mt-4">
+      <figure>
+        <i class="bi bi-exclamation-circle"></i>
+      </figure>
+      <p class="steps-text">
+        If you have some problems and need friendly support.
+      </p>
+    </article>
+    <article class="message icons mt-4">
+      <figure>
+        <i class="bi bi-chat-dots"></i>
+      </figure>
+      <p class="steps-text">
+        Just make an order, explain what kind of help you need and how sooner.
+      </p>
+    </article>
+    <article class="shake-hand icons mt-4">
+      <figure>
+        <i class="bi bi-hand-thumbs-up"></i>
+      </figure>
+      <p class="steps-text">
+        Relax and wait when your lovely neighbors will help you.
+      </p>
+    </article>
+  </section>
+</section>

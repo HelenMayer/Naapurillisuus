@@ -4,6 +4,50 @@
       <a ngbNavLink>Task form</a>
       <ng-template ngbNavContent>
         <!-- Some personal info and form to fill in to ask for help -->
+        <form class="needs-validation" novalidate="">
+          <br>
+          <h3>What help you need?</h3>
+          <div class="col-md-5">
+            <label for="country" class="form-label">Options</label>
+            <select class="form-select" id="country" required="">
+              <option value="">Choose...</option>
+              <option>Shopping</option>
+              <option>Cleaning</option>
+              <option>Driving</option>
+              <option>Walking the pets</option>
+              <option>Repairing</option>
+              <option>Help with PC</option>
+            </select>
+          </div>
+          <br>
+          <div class="col-md-12">
+            <label for="text-area" class="form-label">Describe the task</label>
+            <input type="text-area" class="form-control" />
+          </div>
+      
+          <hr class="my-4" />
+      
+          <h4 class="mb-3">Tasks deadline</h4>
+          <div class="my-3">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                checked=""
+                required=""
+              />
+              <label class="form-check-label">As quickly as possible</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" required="" />
+              <label class="form-check-label">During 2-3 days</label>
+            </div>
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" required="" />
+              <label class="form-check-label">During the weeks</label>
+            </div>
+          </div>
+        </form>
       </ng-template>
     </ng-container>
 
@@ -58,8 +102,7 @@
                   <p class="progressbar">
                     Task progress:
                     <ngb-progressbar type="success" [value]="0"
-                      >0%</ngb-progressbar
-                    >
+                      >0%</ngb-progressbar>
                   </p>
                 </article>
               </ng-template>
@@ -101,8 +144,8 @@
       <ng-template ngbNavContent>
         <section class="donetasks">
           <ngb-accordion [closeOthers]="true" activeIds="static-1" class="disabled">
-            <ngb-panel id="static-1" title="Shopping" [disabled]="true">
-              <ng-template ngbPanelContent >
+            <ngb-panel id="static-1" title="Shopping">
+              <ng-template ngbPanelContent let-opened="opened">
                 Anim pariatur cliche reprehenderit, enim eiusmod high life
                 accusamus terry richardson ad squid. 3 wolf moon officia aute, non
                 cupidatat skateboard dolor brunch. Food truck quinoa nesciunt

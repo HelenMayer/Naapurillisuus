@@ -34,7 +34,10 @@ export class HelperFormComponent {
     helper.zip = document.getElementsByTagName("input")[5].value;
     helper.helpOptions = "help for people";
 
-    if (this.clients.find(searchClient => searchClient.email == helper.email) == null || this.clients.find(searchClient => searchClient.password == helper.password) == null ) {
+    if (helper.address=="" || helper.city=="" || helper.email=="" || helper.firstName=="" || helper.lastName=="" || helper.password=="" || helper.phoneNumber=="" || helper.zip=="" ) {
+      alert("Fill in all data!")
+    }
+    else if (this.clients.find(searchClient => searchClient.email == helper.email) == null || this.clients.find(searchClient => searchClient.password == helper.password) == null ) {
       this.ClientService.createClient(helper).subscribe((clients : Client[]) => this.clientsUpdate.emit(clients))
       let modal = document.getElementById("modalWindowSuccess");
       modal.style.display = "block"; 

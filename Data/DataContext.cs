@@ -7,5 +7,6 @@ namespace Naapurillisuus.Data{
         public DataContext(DbContextOptions<DataContext> options) : base(options) {}
 
         public DbSet<Client> Clients => Set<Client>(); //запись в базу в виде таблицы
+        public DbSet<Task> Tasks => Set<Task>(); //запись в базу в виде таблицы
     }
 }

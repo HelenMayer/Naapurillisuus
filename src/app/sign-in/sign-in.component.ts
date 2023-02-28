@@ -23,11 +23,16 @@ export class SignInComponent {
     let email = document.getElementsByTagName("input")[0].value;
     let password = document.getElementsByTagName("input")[1].value;
     // console.log(this.clients)
-    // console.log(this.clients.find(searchClient => searchClient.email == email).lastName)
-    // console.log(this.clients.find(searchClient => searchClient.password == password).lastName)
+    console.log(this.clients.find(searchClient => searchClient.email == email))
+    console.log(this.clients.find(searchClient => searchClient.password == password))
 
     if (email == "" || password == ""){
       alert("Please enter login and password")
+    }
+    else if(this.clients.find(searchClient => searchClient.email == email) == undefined || this.clients.find(searchClient => searchClient.password == password) == undefined){
+      let modal = document.getElementById("modalWindowWarning");
+      modal.style.display = "block"; 
+      document.getElementsByTagName("form")[0].style.opacity = "0.5";
     }
     else if (this.clients.find(searchClient => searchClient.email == email).lastName == this.clients.find(searchClient => searchClient.password == password).lastName ) {
       let role = this.clients.find(searchClient => searchClient.email == email).role

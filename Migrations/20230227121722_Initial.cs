@@ -31,6 +31,20 @@ namespace Naapurillisuus.Migrations
                 {
                     table.PrimaryKey("PK_Clients", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Tasks",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    headerTask = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    descriptionTask = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Tasks", x => x.id);
+                });
         }
 
         /// <inheritdoc />
@@ -38,6 +52,9 @@ namespace Naapurillisuus.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Clients");
+
+            migrationBuilder.DropTable(
+                name: "Tasks");
         }
     }
 }

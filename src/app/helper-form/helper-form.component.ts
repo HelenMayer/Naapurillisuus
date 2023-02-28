@@ -21,7 +21,6 @@ export class HelperFormComponent {
   }
 
   public createClient(){
-    console.log("work a little");
     let helper = new Client;
 
     helper.role = "helper";
@@ -32,7 +31,8 @@ export class HelperFormComponent {
     helper.address = document.getElementsByTagName("input")[4].value;
     helper.city = document.getElementsByTagName("select")[0].value;
     helper.zip = document.getElementsByTagName("input")[5].value;
-    helper.helpOptions = "help for people";
+    helper.helpOptions = document.getElementsByTagName("textarea")[0].value;
+    console.log(helper.helpOptions)
 
     if (helper.address=="" || helper.city=="" || helper.email=="" || helper.firstName=="" || helper.lastName=="" || helper.password=="" || helper.phoneNumber=="" || helper.zip=="" ) {
       alert("Fill in all data!")

@@ -73,6 +73,27 @@ namespace Naapurillisuus.Migrations
 
                     b.ToTable("Clients");
                 });
+
+            modelBuilder.Entity("Naapurillisuus.Task", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("descriptionTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("headerTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Tasks");
+                });
 #pragma warning restore 612, 618
         }
     }

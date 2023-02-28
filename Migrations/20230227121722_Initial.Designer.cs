@@ -11,7 +11,7 @@ using Naapurillisuus.Data;
 namespace Naapurillisuus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230223133306_Initial")]
+    [Migration("20230227121722_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -75,6 +75,27 @@ namespace Naapurillisuus.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Clients");
+                });
+
+            modelBuilder.Entity("Naapurillisuus.Task", b =>
+                {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+
+                    b.Property<string>("descriptionTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("headerTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("id");
+
+                    b.ToTable("Tasks");
                 });
 #pragma warning restore 612, 618
         }

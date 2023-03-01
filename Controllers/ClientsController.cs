@@ -34,7 +34,7 @@ public class ClientsController : ControllerBase
     [HttpPut]
     public async Task<ActionResult<List<Client>>> UpdateClient(Client person)
     {
-      var dbClient = await _context.Clients.FindAsync(person.Id);
+      var dbClient = await _context.Clients.FindAsync(person.id);
       if (dbClient == null)
       {
         return BadRequest("Client not found");

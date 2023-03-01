@@ -1,7 +1,7 @@
 namespace Naapurillisuus
 {
     public class Client {
-        public int Id {get; set;} 
+        public int id {get; set;} 
         public string role {get; set;} = string.Empty;
         public string firstName {get; set;} = string.Empty;
         public string lastName {get; set;} = string.Empty;

@@ -22,9 +22,6 @@ export class SignInComponent {
     
     let email = document.getElementsByTagName("input")[0].value;
     let password = document.getElementsByTagName("input")[1].value;
-    // console.log(this.clients)
-    console.log(this.clients.find(searchClient => searchClient.email == email))
-    console.log(this.clients.find(searchClient => searchClient.password == password))
 
     if (email == "" || password == ""){
       alert("Please enter login and password")
@@ -36,12 +33,13 @@ export class SignInComponent {
     }
     else if (this.clients.find(searchClient => searchClient.email == email).lastName == this.clients.find(searchClient => searchClient.password == password).lastName ) {
       let role = this.clients.find(searchClient => searchClient.email == email).role
-    console.log(role)
+      let id = this.clients.find(searchClient => searchClient.email == email).id
+
     if (role == "helper"){
-      this.router.navigate(['/helper-dashboard']);
+      this.router.navigate(['/helper-dashboard/:'+id]);
     }
     if (role == "client"){
-      this.router.navigate(['/client-tasks']);
+      this.router.navigate(['/client-tasks/:'+id]);
     }
   }
     else{

@@ -11,7 +11,7 @@ using Naapurillisuus.Data;
 namespace Naapurillisuus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230227121722_Initial")]
+    [Migration("20230301092445_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -26,11 +26,11 @@ namespace Naapurillisuus.Migrations
 
             modelBuilder.Entity("Naapurillisuus.Client", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
                     b.Property<string>("address")
                         .IsRequired()
@@ -72,7 +72,7 @@ namespace Naapurillisuus.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("id");
 
                     b.ToTable("Clients");
                 });

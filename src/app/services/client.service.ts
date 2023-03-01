@@ -31,7 +31,7 @@ export class ClientService {
 
   public deleteClient(client : Client) : Observable<Client[]> 
    {
-    return this.http.delete<Client[]>(`${environment.apiUrl}/${this.url}/${client.Id}`);
+    return this.http.delete<Client[]>(`${environment.apiUrl}/${this.url}/${client.id}`);
   }
  }
 

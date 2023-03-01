@@ -1,9 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Client } from '../Models/Client';
 import { Task } from '../Models/task';
 import { TaskService } from '../services/task.service';
+import { ClientService } from '../services/client.service';
 
 @Component({
   selector: 'app-client-tasks',
@@ -14,12 +14,19 @@ export class ClientTasksComponent {
 
   @Input() task? : Task;
   @Output() tasksUpdate = new EventEmitter<Task[]>();
-  Tasks: Task [] = []
+  tasks: Task [] = []
+  name = "UserName";
+  id = "";
+  clients : Client[] = []
 
-  constructor(private TaskService : TaskService){}
+  constructor(private TaskService : TaskService, private route: ActivatedRoute, private ClientService : ClientService){}
 
   ngOnInit(): void{
-    this.TaskService.getTasks().subscribe((result : Task[]) => (this.Tasks = result));
+    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.id.replace(":", "")
+
+    this.ClientService.getClients().subscribe((result : Client[]) => {this.clients = result; this.name = this.clients.find(searchClient => searchClient.id == Number(this.id)).firstName + " " + this.clients.find(searchClient => searchClient.id == Number(this.id)).lastName});
+    this.TaskService.getTasks().subscribe((result : Task[]) => (this.tasks = result));
   }
 
   public createTask(){
@@ -27,12 +34,11 @@ export class ClientTasksComponent {
 
     task.headerTask = document.getElementsByTagName("select")[0].value;
     task.descriptionTask = document.getElementsByTagName("textarea")[0].value;
-
-    if (task.headerTask=="" || task.descriptionTask=="" ) {
+  
+    if (task.headerTask == "" || task.descriptionTask == "" ) {
       alert("Fill in all data!")
     }
-    else if (this.Tasks.find(searchTask => searchTask.headerTask == task.headerTask) == null || this.Tasks.find(searchTask => searchTask.descriptionTask == task.descriptionTask) == null ) 
-    {
+    else {
       this.TaskService.createTask(task).subscribe((Tasks : Task[]) => this.tasksUpdate.emit(Tasks))
       let modal = document.getElementById("modalWindowSuccess");
       modal.style.display = "block"; 
@@ -54,3 +60,4 @@ export class ClientTasksComponent {
   }
 }
 export class NgbdAccordionStatic {}
+

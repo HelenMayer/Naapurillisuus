@@ -14,7 +14,7 @@ namespace Naapurillisuus.Migrations
                 name: "Clients",
                 columns: table => new
                 {
-                    Id = table.Column<int>(type: "int", nullable: false)
+                    id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     role = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     firstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -29,7 +29,7 @@ namespace Naapurillisuus.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clients", x => x.Id);
+                    table.PrimaryKey("PK_Clients", x => x.id);
                 });
 
             migrationBuilder.CreateTable(

@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Task } from '../Models/task';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,6 +21,7 @@ export class TaskService {
 
   public createTask(task : Task) : Observable<Task[]> 
   {
+    console.log(task)
    return this.http.post<Task[]>(`${environment.apiUrl}/${this.url}`, task);
   }
 

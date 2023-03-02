@@ -25,6 +25,10 @@ public class TasksController : ControllerBase
     [HttpPost]
     public async Task<ActionResult<List<Task>>> CreateTask(Task task)
     {
+      Console.Write(task);
+      
+      Console.WriteLine("values: " + task.descriptionTask);
+      
       _context.Tasks.Add(task);
       await _context.SaveChangesAsync();
 

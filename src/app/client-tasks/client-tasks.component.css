@@ -27,19 +27,27 @@
     padding: 0;
 }
 
-.helpPC {
+#Help {
     color: black;
-    background-color: #CBE5F2;
+    background-color: #a3e0ff;
 }
 
-.shopping {
+#Shopping{
     color: black;
-    background-color: #D1E6DD;
+    background-color: #fffdc3;
+}
+#Cleaning {
+    color: black;
+    background-color: #daeee9;
 }
 
-.walkpet {
+#Walking {
     color: #000;
-    background-color: #FFF2CD;
+    background-color: #d8f4ba;
+}
+#Driving{
+    color: black;
+    background-color: #ffe1c7;
 }
 
 .progressbar{

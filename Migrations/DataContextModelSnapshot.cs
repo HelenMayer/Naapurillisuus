@@ -82,11 +82,27 @@ namespace Naapurillisuus.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
 
+                    b.Property<string>("deadline")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("descriptionTask")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("headerTask")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("idClient")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("idHelper")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("timeCreate")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

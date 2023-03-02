@@ -30,11 +30,20 @@ export class ClientTasksComponent {
   }
 
   public createTask(){
+    var today = new Date();
+ 
+// получаем дату и время
+    var now = today.toLocaleString();
     let task = new Task;
 
     task.headerTask = document.getElementsByTagName("select")[0].value;
     task.descriptionTask = document.getElementsByTagName("textarea")[0].value;
-  
+    task.timeCreate = now;
+    task.deadline = document.getElementsByTagName("select")[1].value;
+    task.idClient = this.id;
+
+    console.log(task)
+
     if (task.headerTask == "" || task.descriptionTask == "" ) {
       alert("Fill in all data!")
     }
@@ -44,6 +53,8 @@ export class ClientTasksComponent {
       modal.style.display = "block"; 
       document.getElementsByTagName("form")[0].style.opacity = "0.5";
     }
+
+    console.log(this.tasks)
   };
 
   updateClient(task : Task){

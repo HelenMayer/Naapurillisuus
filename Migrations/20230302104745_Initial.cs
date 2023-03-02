@@ -39,7 +39,11 @@ namespace Naapurillisuus.Migrations
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     headerTask = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    descriptionTask = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    descriptionTask = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    timeCreate = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    deadline = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    idClient = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    idHelper = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -36,24 +36,14 @@
           <hr class="my-4" />
       
           <h4 class="mb-3">Tasks deadline</h4>
-          <div class="my-3">
-            <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                checked=""
-                required=""
-              />
-              <label class="form-check-label">As quickly as possible</label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" required="" />
-              <label class="form-check-label">During 2-3 days</label>
-            </div>
-            <div class="form-check">
-              <input type="checkbox" class="form-check-input" required="" />
-              <label class="form-check-label">During the weeks</label>
-            </div>
+          <div class="col-md-5">
+            <label for="country" class="form-label">Options</label>
+            <select class="form-select" id="country" required="">
+              <option value="">Choose...</option>
+              <option>As quickly as possible</option>
+              <option>During 2-3 days</option>
+              <option>During the weeks</option>
+            </select>
           </div>
           <button  class="w-100 btn btn-lg" type="submit" (click)="createTask()"> Create task</button>
         </form>
@@ -66,82 +56,29 @@
       <a ngbNavLink>My tasks</a>
       <ng-template ngbNavContent>
         <section class="client_tasks">
-          <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one">
-            <ngb-panel title="Help with PC" id="helpPC">
-              <ng-template ngbPanelHeader let-opened="opened">
-                <button ngbPanelToggle class="accordion-button helpPC">
-                  Help with PC
-                </button>
-              </ng-template>
-              <ng-template ngbPanelContent>
-                <article class="task-body">
-                  <strong>Help with PC<br />Ke, 07.02.2023</strong>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <a href="">Edit task</a>
-                  <p class="progressbar">
-                    Task progress:
-                    <ngb-progressbar type="success" [value]="25"
-                      >25%</ngb-progressbar
-                    >
-                  </p>
-                </article>
-              </ng-template>
-            </ngb-panel>
-            <ngb-panel title="Shopping">
-              <ng-template ngbPanelHeader let-opened="opened">
-                <button ngbPanelToggle class="accordion-button shopping">
-                  Shopping
-                </button>
-              </ng-template>
-              <ng-template ngbPanelContent>
-                <article class="task-body">
-                  <strong>Shopping<br />La, 03.03.2023</strong>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <a href="">Edit task</a>
-                  <p class="progressbar">
-                    Task progress:
-                    <ngb-progressbar type="success" [value]="0"
-                      >0%</ngb-progressbar>
-                  </p>
-                </article>
-              </ng-template>
-            </ngb-panel>
-            <ngb-panel title="Shopping">
-              <ng-template ngbPanelHeader let-opened="opened">
-                <button ngbPanelToggle class="accordion-button walkpet">
-                  Walk the dog
-                </button>
-              </ng-template>
-              <ng-template ngbPanelContent>
-                <article class="task_body">
-                  <strong>Walk the dog<br />Ma, 01.02.2023</strong>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <a href="">Edit task</a>
-                  <p class="progressbar">
-                    Task progress:
-                    <ngb-progressbar type="success" [value]="50"
-                      >50%</ngb-progressbar
-                    >
-                  </p>
-                </article>
-              </ng-template>
-            </ngb-panel>
-          </ngb-accordion>
+          <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
+              <ngb-panel title={{item.headerTask}}  *ngIf="item.idClient == id ">
+                <ng-template ngbPanelHeader let-opened="opened">
+                  <button ngbPanelToggle class="accordion-button"  id={{item.headerTask}}>
+                    {{item.headerTask}}
+                  </button>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <article class="task-body">
+                    <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
+                    <p>
+                      {{item.descriptionTask}}
+                    </p>
+                    <a href="">Edit task</a>
+                    <p class="progressbar">
+                      Task progress:
+                      <ngb-progressbar type="success" [value]="25"
+                        >25%</ngb-progressbar>
+                    </p>
+                  </article>
+                </ng-template>
+              </ngb-panel>
+           </ngb-accordion>
         </section>
       </ng-template>
     </ng-container>

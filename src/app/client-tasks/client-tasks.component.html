@@ -57,7 +57,7 @@
       <ng-template ngbNavContent>
         <section class="client_tasks">
           <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
-              <ngb-panel title={{item.headerTask}}  *ngIf="item.idClient == id ">
+              <ngb-panel title={{item.headerTask}}  *ngIf="(item.idClient == id && item.done == 'false')" >
                 <ng-template ngbPanelHeader let-opened="opened">
                   <button ngbPanelToggle class="accordion-button"  id={{item.headerTask}}>
                     {{item.headerTask}}
@@ -75,6 +75,7 @@
                       <ngb-progressbar type="success" [value]="25"
                         >25%</ngb-progressbar>
                     </p>
+                    <button class=" btn btn-lg" style="background-color: #198753;" onclick="doneTask()">Done</button>
                   </article>
                 </ng-template>
               </ngb-panel>
@@ -89,23 +90,25 @@
       <a ngbNavLink>Done</a>
       <ng-template ngbNavContent>
         <section class="donetasks">
-          <ngb-accordion [closeOthers]="true" activeIds="static-1" class="disabled">
-            <ngb-panel id="static-1" title="Shopping">
-              <ng-template ngbPanelContent let-opened="opened">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life
-                accusamus terry richardson ad squid. 3 wolf moon officia aute, non
-                cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird
-                on it squid single-origin coffee nulla assumenda shoreditch et.
-                Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                nesciunt sapiente ea proident. Ad vegan excepteu
-                r butcher vice
-                lomo. Leggings occaecat craft beer farm-to-table, raw denim
-                aesthetic synth nesciunt you probably haven't heard of them
-                accusamus labore sustainable VHS.
+          <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
+            <ngb-panel title={{item.headerTask}}  *ngIf="(item.idClient == id && item.done == 'true' )">
+              <ng-template ngbPanelHeader let-opened="opened" >
+                <button ngbPanelToggle class="accordion-button">
+                  {{item.headerTask}}
+                </button>
+              </ng-template>
+              <ng-template ngbPanelContent>
+                <article class="task-body">
+                  <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
+                  <p>
+                    {{item.descriptionTask}}
+                  </p>
+                  <a href="">Feed back</a>
+                  
+                </article>
               </ng-template>
             </ngb-panel>
-          </ngb-accordion>
+         </ngb-accordion>
       </section>
       </ng-template>
     </ng-container>

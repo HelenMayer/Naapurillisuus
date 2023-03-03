@@ -8,6 +8,7 @@ namespace Naapurillisuus
         public string deadline {get; set;} = string.Empty;
         public string idClient {get; set;} = string.Empty;
         public string idHelper {get; set;} = string.Empty;
+        public string done {get; set;} = string.Empty;
 
 
     }

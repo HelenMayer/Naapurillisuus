@@ -19,6 +19,8 @@ export class HelperDashboardComponent {
   name = "UserName";
   id = "";
   clients : Client[] = []
+  inProcessTasks : Task[] = []
+  doneTasks : Task[] = []
 
   constructor(private TaskService : TaskService, private route: ActivatedRoute, private ClientService : ClientService){}
 

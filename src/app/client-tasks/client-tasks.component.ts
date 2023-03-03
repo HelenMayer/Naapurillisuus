@@ -18,6 +18,9 @@ export class ClientTasksComponent {
   name = "UserName";
   id = "";
   clients : Client[] = []
+  inProcessTasks : Task[] = []
+  doneTasks : Task[] = []
+
 
   constructor(private TaskService : TaskService, private route: ActivatedRoute, private ClientService : ClientService){}
 
@@ -25,7 +28,14 @@ export class ClientTasksComponent {
     this.id = this.route.snapshot.paramMap.get('id');
     this.id = this.id.replace(":", "")
 
-    this.ClientService.getClients().subscribe((result : Client[]) => {this.clients = result; this.name = this.clients.find(searchClient => searchClient.id == Number(this.id)).firstName + " " + this.clients.find(searchClient => searchClient.id == Number(this.id)).lastName});
+    this.ClientService.getClients().subscribe((result : Client[]) => {this.clients = result; this.name = this.clients.find(searchClient => searchClient.id == Number(this.id)).firstName + " " + this.clients.find(searchClient => searchClient.id == Number(this.id)).lastName; this.tasks.forEach(element => {
+      if (element.done == "false") {
+        this.inProcessTasks.push(element)
+      }      
+      else{
+        this.doneTasks.push(element)
+      }
+    });});
     this.TaskService.getTasks().subscribe((result : Task[]) => (this.tasks = result));
   }
 
@@ -41,8 +51,7 @@ export class ClientTasksComponent {
     task.timeCreate = now;
     task.deadline = document.getElementsByTagName("select")[1].value;
     task.idClient = this.id;
-
-    console.log(task)
+    task.done = "false";
 
     if (task.headerTask == "" || task.descriptionTask == "" ) {
       alert("Fill in all data!")
@@ -53,8 +62,6 @@ export class ClientTasksComponent {
       modal.style.display = "block"; 
       document.getElementsByTagName("form")[0].style.opacity = "0.5";
     }
-
-    console.log(this.tasks)
   };
 
   updateClient(task : Task){
@@ -68,6 +75,10 @@ export class ClientTasksComponent {
     let modal = document.getElementById("modalWindowSuccess");
     modal.style.display = "none"; 
     document.getElementsByTagName("form")[0].style.opacity = "1";
+  }
+
+  doneTask(){
+    
   }
 }
 export class NgbdAccordionStatic {}

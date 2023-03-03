@@ -6,4 +6,5 @@ export class Task{
     deadline : string;
     idClient : string;
     idHelper : string;
+    done : string;
 }

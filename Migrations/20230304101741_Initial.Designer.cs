@@ -11,8 +11,8 @@ using Naapurillisuus.Data;
 namespace Naapurillisuus.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230302123042_Taskdone")]
-    partial class Taskdone
+    [Migration("20230304101741_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -9,30 +9,28 @@ import { Task } from '../Models/task';
 })
 export class TaskService {
 
-  private url = "Tasks";
-
   constructor(private http : HttpClient) { }
 
-// возвращает список задач
-  public getTasks() : Observable<Task[]> 
-   {
+  private url = "Tasks";
+
+  public getTasks() : Observable<Task[]>{
     return this.http.get<Task[]>(`${environment.apiUrl}/${this.url}`);
   }
 
-  public createTask(task : Task) : Observable<Task[]> 
-  {
-   console.log(task)
-   return this.http.post<Task[]>(`${environment.apiUrl}/${this.url}`, task);
+  public createTask(task : Task) : Observable<Task[]>{
+    console.log("Create: ",task)
+    return this.http.post<Task[]>(`${environment.apiUrl}/${this.url}`, task);
   }
 
-  public updateTask(task : Task) : Observable<Task[]> 
-   {
+  public updateTask(task : Task) : Observable<Task[]>{
+    console.log("Update: ", task)
     return this.http.put<Task[]>(`${environment.apiUrl}/${this.url}`, task);
   }
 
-  public deleteTask(task : Task) : Observable<Task[]> 
-   {
+  public deleteTask(task : Task) : Observable<Task[]>{
     return this.http.delete<Task[]>(`${environment.apiUrl}/${this.url}/${task.id}`);
   }
- }
 
+
+
+}

@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { Client } from './Models/Client';
+import { Task } from './Models/task';
 import { ClientService } from './services/client.service';
 import { HelperFormService } from './services/helper-form.service';
+import { TaskService } from './services/task.service';
 
 @Component({
   selector: 'app-root',
@@ -11,14 +13,12 @@ import { HelperFormService } from './services/helper-form.service';
 export class AppComponent {
   title = 'Naapurillisuus';
   clients : Client[] = [];
+  tasks : Task[] = [];
 
-  // constructor(
-  //   public helperformService: HelperFormService,
-  //   ){}
 
-  constructor (private ClientService : ClientService){}
+  constructor (private ClientService : ClientService, private TaskService : TaskService, helperformService : HelperFormService){}
 
   ngOnInit() : void {
-    // this.ClientService.getClients().subscribe((result : Client[]) => {this.clients = result});
+
   }
 }

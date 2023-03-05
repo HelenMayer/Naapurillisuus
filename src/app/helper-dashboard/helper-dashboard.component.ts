@@ -29,7 +29,21 @@ export class HelperDashboardComponent {
     this.id = this.id.replace(":", "")
 
     this.ClientService.getClients().subscribe((result : Client[]) => {this.clients = result; this.name = this.clients.find(searchClient => searchClient.id == Number(this.id)).firstName + " " + this.clients.find(searchClient => searchClient.id == Number(this.id)).lastName});
-    this.TaskService.getTasks().subscribe((result : Task[]) => (this.tasks = result));
+    this.TaskService.getTasks().subscribe((result : Task[]) => {this.tasks = result; console.log(this.tasks)});
+  }
+
+  updateTask(task : Task){
+    this.TaskService.updateTask(task).subscribe((Tasks : Task[]) => this.tasksUpdate.emit(Tasks))
+  };
+
+  takeTask(task : Task){
+    console.log("I'm takeTask");
+    task.idHelper = this.id;
+    this.updateTask(task);
+  }
+
+  deleteTask(task : Task){
+    this.TaskService.deleteTask(task).subscribe((Tasks : Task[]) => this.tasksUpdate.emit(Tasks))
   }
   
 }

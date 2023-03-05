@@ -43,7 +43,8 @@ namespace Naapurillisuus.Migrations
                     timeCreate = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     deadline = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     idClient = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    idHelper = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    idHelper = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    done = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {

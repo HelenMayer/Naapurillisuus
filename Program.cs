@@ -24,6 +24,9 @@ builder.Services.AddDbContext<DataContext>(options => {
 builder.Services.AddCors(options => options.AddPolicy(name : "ClientOrigins", policy => {
     policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
 } ));
+builder.Services.AddCors(options => options.AddPolicy(name : "TaskOrigins", policy => {
+    policy.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader();
+} ));
 
 var app = builder.Build();
 
@@ -35,6 +38,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseCors("ClientOrigins");
+app.UseCors("TaskOrigins");
 
 app.UseDefaultFiles();
 

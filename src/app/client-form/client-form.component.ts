@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Client } from '../Models/Client';
 import { ClientService } from '../services/client.service';
+import { TaskService } from '../services/task.service';
 
 
 @Component({
@@ -33,6 +34,8 @@ export class ClientFormComponent implements OnInit {
     client.address = document.getElementsByTagName("input")[5].value;
     client.city = document.getElementsByTagName("select")[0].value;
     client.zip = document.getElementsByTagName("input")[6].value;
+
+    console.log(client)
 
     if (client.address=="" || client.city=="" || client.email=="" || client.firstName=="" || client.lastName=="" || client.password=="" || client.phoneNumber=="" || client.zip=="" ) {
       alert("Fill in all data!")

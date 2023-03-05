@@ -2,98 +2,97 @@
 <section class="container">
   <nav ngbNav #nav="ngbNav" class="nav-tabs">
     <ng-container ngbNavItem>
-      <a ngbNavLink>Tasks list</a>
-      <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
-        <ngb-panel title={{item.headerTask}}  *ngIf="item.idClient == id " >
-          <ng-template ngbPanelHeader let-opened="opened">
-            <button ngbPanelToggle class="accordion-button"  id={{item.headerTask}}>
-              {{item.headerTask}}
-            </button>
-          </ng-template>
-          <ng-template ngbPanelContent>
-            <article class="task-body">
-              <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
-              <p>
-                {{item.descriptionTask}}
-              </p>
-              <a href="">Edit task</a>
-              <p class="progressbar">
-                Task progress:
-                <ngb-progressbar type="success" [value]="25"
-                  >25%</ngb-progressbar>
-              </p>
-            </article>
-          </ng-template>
-        </ngb-panel>
-     </ngb-accordion>
-    </ng-container>
-    <ng-container ngbNavItem>
-      <a ngbNavLink>My tasks</a>
-      <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
-        <ngb-panel title={{item.headerTask}} >
-          <ng-template ngbPanelHeader let-opened="opened">
-            <button ngbPanelToggle class="accordion-button"  id={{item.headerTask}}>
-              {{item.headerTask}}
-            </button>
-          </ng-template>
-          <ng-template ngbPanelContent>
-            <article class="task-body">
-              <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
-              <p>
-                {{item.descriptionTask}}
-              </p>
-              <a href="">Edit task</a>
-              <p class="progressbar">
-                Task progress:
-                <ngb-progressbar type="success" [value]="25"
-                  >25%</ngb-progressbar>
-              </p>
-            </article>
-          </ng-template>
-        </ngb-panel>
-     </ngb-accordion>
-    </ng-container>
-    <ng-container ngbNavItem>
-      <a ngbNavLink>Done</a>
+      <a ngbNavLink>Task list</a>
       <ng-template ngbNavContent>
-        <p></p>
-        <section class="done">
-          <ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1">
-            <ngb-panel [disabled]="true">
-              <ng-template ngbPanelHeader let-opened="opened" class="disabled">
-                <button
-                  ngbPanelToggle
-                  class="accordion-button urgently disabled"
-                >
-                  <span><b> Urgently</b> &nbsp;04/10/2023</span>
-                </button>
-              </ng-template>
-              <ng-template ngbPanelContent>
-                <article class="accordion-body">
-                  <strong>Walking with pets.</strong>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna
-                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <div class="d-flex justify-content-end">
-                    <button class="btn btn-warning btn-sm px-4 opacity-75">
-                      Send a message
-                    </button>
-
-                    <button class="btn btn-success btn-sm px-4 ms-3 opacity-75">
-                      I take
-                    </button>
-                  </div>
-                </article>
-              </ng-template>
-            </ngb-panel>
-          </ngb-accordion>
+        <section  class="client_tasks">
+          <ngb-accordion #a="ngbAccordion" activeIds="custom-panel-1" *ngFor="let task of tasks">
+          <ngb-panel id="custom-panel-1" *ngIf="(task.done == 'false' && task.idHelper == '') ">
+          <ng-template ngbPanelHeader let-opened="opened">
+          <button
+            ngbPanelToggle
+            class="accordion-button {{task.headerTask}}"
+          >
+            <span
+              ><b> {{ task.headerTask }}</b>&nbsp;{{task.timeCreate}}</span
+            >
+          </button>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <article class="accordion-body">
+            <strong>{{ task.headerTask }}</strong>
+            <p>
+              {{ task.descriptionTask}}
+            </p>
+            <div class="d-flex justify-content-end">
+              <button class="btn btn-take btn-lg" (click)="takeTask(task)">I take</button>
+            </div>
+          </article>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
         </section>
       </ng-template>
-    </ng-container>
-  </nav>
+      </ng-container>
 
-  <div [ngbNavOutlet]="nav" class="mt-2"></div>
-</section>
+      <ng-container ngbNavItem>
+        <a ngbNavLink>My tasks</a>
+        <ng-template ngbNavContent>
+          <section class="client_tasks">
+            <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
+                <ngb-panel title={{item.headerTask}}  *ngIf="(item.idHelper == id && item.done == 'false')" >
+                  <ng-template ngbPanelHeader let-opened="opened">
+                    <button ngbPanelToggle class="accordion-button {{item.headerTask}}">
+                      {{item.headerTask}}
+                    </button>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <article class="task-body">
+                      <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
+                      <p>
+                        {{item.descriptionTask}}
+                      </p>
+                      <a href="">Edit task</a>
+                      <p class="progressbar">
+                        Task progress:
+                        <ngb-progressbar type="success" [value]="25"
+                          >25%</ngb-progressbar>
+                      </p>
+                      <button class=" btn btn-lg" style="background-color: rgb(216, 56, 56);" (click)="deleteTask(item)">Delete</button>
+                    </article>
+                  </ng-template>
+                </ngb-panel>
+             </ngb-accordion>
+          </section>
+        </ng-template>
+      </ng-container>
+
+      <ng-container ngbNavItem>
+        <a ngbNavLink>Done</a>
+        <ng-template ngbNavContent>
+          <section class="donetasks">
+            <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
+              <ngb-panel title={{item.headerTask}}  *ngIf="(item.idHelper == id && item.done == 'true' )">
+                <ng-template ngbPanelHeader let-opened="opened" >
+                  <button ngbPanelToggle class="accordion-button  {{item.headerTask}}">
+                    {{item.headerTask}}
+                  </button>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                  <article class="task-body">
+                    <strong>{{item.headerTask}}<br />{{item.timeCreate}}</strong>
+                    <p>
+                      {{item.descriptionTask}}
+                    </p>
+                    <a href="">Feed back</a>
+                    
+                  </article>
+                </ng-template>
+              </ngb-panel>
+           </ngb-accordion>
+        </section>
+        </ng-template>
+      </ng-container>
+    </nav>
+
+    <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  </section>

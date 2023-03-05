@@ -4,7 +4,6 @@
     <ng-container ngbNavItem>
       <a ngbNavLink>Task form</a>
       <ng-template ngbNavContent>
-        <!-- Some personal info and form to fill in to ask for help -->
         <form class="needs-validation form" novalidate="">
           <br>
           <h3>What help you need?</h3>
@@ -59,7 +58,7 @@
           <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
               <ngb-panel title={{item.headerTask}}  *ngIf="(item.idClient == id && item.done == 'false')" >
                 <ng-template ngbPanelHeader let-opened="opened">
-                  <button ngbPanelToggle class="accordion-button"  id={{item.headerTask}}>
+                  <button ngbPanelToggle class="accordion-button {{item.headerTask}}">
                     {{item.headerTask}}
                   </button>
                 </ng-template>
@@ -75,7 +74,8 @@
                       <ngb-progressbar type="success" [value]="25"
                         >25%</ngb-progressbar>
                     </p>
-                    <button class=" btn btn-lg" style="background-color: #198753;" onclick="doneTask()">Done</button>
+                    <button class=" btn btn-lg" style="background-color: #198753;" (click)="doneTask(item)">Done</button><button class=" btn btn-lg" style="background-color: #198753;" (click)="updateTask(item)">Edit</button>
+                    <button class=" btn btn-lg" style="background-color: rgb(216, 56, 56);" (click)="deleteTask(item)">Delete</button>
                   </article>
                 </ng-template>
               </ngb-panel>
@@ -93,7 +93,7 @@
           <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" *ngFor="let item of tasks">
             <ngb-panel title={{item.headerTask}}  *ngIf="(item.idClient == id && item.done == 'true' )">
               <ng-template ngbPanelHeader let-opened="opened" >
-                <button ngbPanelToggle class="accordion-button">
+                <button ngbPanelToggle class="accordion-button  {{item.headerTask}}">
                   {{item.headerTask}}
                 </button>
               </ng-template>

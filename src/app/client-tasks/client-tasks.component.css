@@ -27,25 +27,25 @@
     padding: 0;
 }
 
-#Help {
+.Help{
     color: black;
     background-color: #a3e0ff;
 }
 
-#Shopping{
+.Shopping{
     color: black;
     background-color: #fffdc3;
 }
-#Cleaning {
+.Cleaning {
     color: black;
     background-color: #daeee9;
 }
 
-#Walking {
+.Walking {
     color: #000;
     background-color: #d8f4ba;
 }
-#Driving{
+.Driving{
     color: black;
     background-color: #ffe1c7;
 }
@@ -60,6 +60,7 @@
     border: #ff9800;
     color: white;
     margin-top: 2rem;
+    margin-right: 1rem;
 }
   .btn:hover {
     background-color: white;

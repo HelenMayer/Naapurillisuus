@@ -5,8 +5,9 @@ using Naapurillisuus.Data;
 
 namespace Naapurillisuus.Controllers;
 
-[Controller]
+[ApiController]
 [Route("api/[controller]")]
+
 public class TasksController : ControllerBase
 {
   private DataContext _context;
@@ -24,11 +25,7 @@ public class TasksController : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<List<Task>>> CreateTask(Task task)
-    {
-      Console.Write(task);
-      
-      Console.WriteLine("values: " + task.descriptionTask);
-      
+    {      
       _context.Tasks.Add(task);
       await _context.SaveChangesAsync();
 
@@ -46,6 +43,11 @@ public class TasksController : ControllerBase
       
      dbTask.headerTask = task.headerTask;
      dbTask.descriptionTask = task.descriptionTask;
+     dbTask.deadline = task.deadline;
+     dbTask.idClient = task.idClient;
+     dbTask.idHelper = task.idHelper;
+     dbTask.timeCreate = task.timeCreate;
+     dbTask.done = task.done;
 
       await _context.SaveChangesAsync();
 

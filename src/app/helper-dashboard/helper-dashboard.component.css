@@ -7,7 +7,7 @@
 .container {
     margin: 0 auto;
     padding: 0;
-    max-width: 1240px;
+    max-width: 80%;
   }
 
 .task_list, .my_tasks, .done{
@@ -38,6 +38,41 @@
 }
 .nav-link{
     color: #46a44b;
+}
+.Help{
+    color: black;
+    background-color: #a3e0ff;
+}
+
+.Shopping{
+    color: black;
+    background-color: #fffdc3;
+}
+.Cleaning {
+    color: black;
+    background-color: #daeee9;
+}
+
+.Walking {
+    color: #000;
+    background-color: #d8f4ba;
+}
+.Driving{
+    color: black;
+    background-color: #ffe1c7;
+}
+
+.btn {
+    background-color: #46A44B;
+    border: #46A44B;
+    color: white;
+    margin-top: 2rem;
+    margin-right: 1rem;
+}
+  .btn:hover {
+    background-color: white;
+    border: 1px solid #46A44B;
+    color: #46A44B;
 }
 @media only screen and (max-width: 425px) {
     .task_list{

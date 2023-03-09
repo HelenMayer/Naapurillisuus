@@ -1,0 +1,69 @@
+<main class="container">
+    <section class="my_account d-flex justify-content-between flex-wrap mb-4">
+      <article class="col">
+        <img
+        [src]="imgUrl"
+          alt="Generic placeholder image"
+          class="card-img col"
+        />
+      </article>
+      <section class="col d-flex flex-column justify-content-between gap-3">
+        <article class="d-flex justify-content-between">
+          <h5 class="mb-1 userText">
+            {{firstname }} {{ lastname }}
+          </h5>
+          <button class="btn ask_help_btn" (click)="askHelp()">
+            Ask for help
+          </button>
+        </article>
+        <div
+          class="d-flex justify-content-start rounded-3 p-2"
+          style="background-color: #efefef"
+        >
+          <div>
+            <p class="small text-muted mb-1">Deals done</p>
+            <p class="mb-0">41</p>
+          </div>
+          <div class="px-3">
+            <p class="small text-muted mb-1">Neighbors</p>
+            <p class="mb-0">134</p>
+          </div>
+          <div>
+            <p class="small text-muted mb-1">Rating</p>
+            <p class="mb-0">10.0</p>
+          </div>
+        </div>
+        <div>
+          <p class="mb-2 pb-1" style="color: #2b2a2a; font-size: 1.2rem">
+            Address: {{address}}
+            <br>
+            email: {{email}}
+          </p>
+        </div>
+        <div class="mt-4">
+          <button
+            type="button"
+            class="btn btnShow_id"
+            (click)="myQrCode = !myQrCode"
+          >
+            {{ myQrCode ? "Hide" : "Show" }} QR code
+          </button>
+        </div>
+      </section>
+      <div class="qr" *ngIf="myQrCode">
+        <h5 class="text-qr">You QR Code:</h5>
+        <!-- <qrcode
+          [qrdata]="qrData"
+          [width]="300"
+          [errorCorrectionLevel]="'M'"
+          >{{ myQrCode ? "Hide" : "Show" }}</qrcode
+        > -->
+      </div>
+    </section>
+    <button (click)="BackHelperDashboard()" class="btnPersonalAccount"><i class="bi bi-caret-left"></i>Back</button>
+  </main>
+  
+  <a href=""
+    ><p class="text"></p>
+    <i class="icon"></i
+  ></a>

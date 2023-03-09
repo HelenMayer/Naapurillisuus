@@ -74,6 +74,13 @@
     border: 1px solid #46A44B;
     color: #46A44B;
 }
+
+.btnPersonalAccount{
+    background-color: white;
+    border: none;
+    font-size: 1.2rem;
+}
+
 @media only screen and (max-width: 425px) {
     .task_list{
         margin: .5em;

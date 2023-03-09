@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-header',
@@ -8,9 +9,14 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
   imgUrl ='./assets/Logo_naapuri.png';
+  access = true;
 
-  constructor(private router :Router){}
+  constructor(private router :Router, private LoginService : LoginService){}
 
+  ngOnInit(){
+    console.log(this.LoginService.access)
+    this.access = this.LoginService.access
+  }
 
   Logout(){
     this.router.navigate(['/sign-in']);

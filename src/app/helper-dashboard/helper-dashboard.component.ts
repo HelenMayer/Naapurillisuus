@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Client } from '../Models/Client';
 import { Task } from '../Models/task';
 import { TaskService } from '../services/task.service';
@@ -22,7 +22,7 @@ export class HelperDashboardComponent {
   inProcessTasks : Task[] = []
   doneTasks : Task[] = []
 
-  constructor(private TaskService : TaskService, private route: ActivatedRoute, private ClientService : ClientService){}
+  constructor(private TaskService : TaskService, private route: ActivatedRoute, private ClientService : ClientService, private router: Router){}
 
   ngOnInit(): void{
     this.id = this.route.snapshot.paramMap.get('id');
@@ -42,8 +42,17 @@ export class HelperDashboardComponent {
     this.updateTask(task);
   }
 
+  doneTask(task : Task){
+    task.done = "true";
+    this.updateTask(task)
+  }
+
   deleteTask(task : Task){
     this.TaskService.deleteTask(task).subscribe((Tasks : Task[]) => this.tasksUpdate.emit(Tasks))
+  }
+
+  personalAccount(){
+    this.router.navigate(['/helper-my-account/:'+this.id])
   }
   
 }

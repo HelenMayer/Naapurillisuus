@@ -15,6 +15,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ClientFormComponent } from './client-form/client-form.component';
 import { ClientTasksComponent } from './client-tasks/client-tasks.component';
 import { FormsModule } from '@angular/forms';
+import { HelperMyAccountComponent } from './helper-my-account/helper-my-account.component';
+import { ClientMyAccountComponent } from './client-my-account/client-my-account.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FormsModule } from '@angular/forms';
     MyTasksComponent, 
     ContactFormComponent,
     ClientFormComponent,
-    ClientTasksComponent
+    ClientTasksComponent,
+    HelperMyAccountComponent,
+    ClientMyAccountComponent
   ],
   imports: [
     BrowserModule,

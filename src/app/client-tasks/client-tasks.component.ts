@@ -51,6 +51,9 @@ export class ClientTasksComponent {
       let modal = document.getElementById("modalWindowSuccess");
       modal.style.display = "block"; 
       document.getElementsByTagName("form")[0].style.opacity = "0.5";
+      document.getElementsByTagName("select")[0].value = "";
+      document.getElementsByTagName("textarea")[0].value = "";
+      document.getElementsByTagName("select")[1].value = "";
     }  
   }
 
@@ -70,5 +73,9 @@ export class ClientTasksComponent {
   doneTask(task : Task){
     task.done = "true";
     this.updateTask(task)
+  }
+
+  personalAccount(){
+    this.router.navigate(['/client-my-account/:'+this.id])
   }
 }

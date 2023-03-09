@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Client } from '../Models/Client';
 import { ClientService } from '../services/client.service';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/login.service';
+
 
 @Component({
   selector: 'app-sign-in',
@@ -12,7 +14,7 @@ export class SignInComponent {
 
   clients: Client [] = []
 
-  constructor(private ClientService : ClientService, private router: Router){}
+  constructor(private ClientService : ClientService, private router: Router, private LoginService : LoginService){}
 
   ngOnInit(): void{
     this.ClientService.getClients().subscribe((result : Client[]) => (this.clients = result));
@@ -34,6 +36,8 @@ export class SignInComponent {
     else if (this.clients.find(searchClient => searchClient.email == email).lastName == this.clients.find(searchClient => searchClient.password == password).lastName ) {
       let role = this.clients.find(searchClient => searchClient.email == email).role
       let id = this.clients.find(searchClient => searchClient.email == email).id
+      this.LoginService.access = true;
+      console.log("new ", this.LoginService.access)
 
     if (role == "helper"){
       this.router.navigate(['/helper-dashboard/:'+id]);

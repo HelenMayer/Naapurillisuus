@@ -12,9 +12,7 @@ public class ClientsController : ControllerBase
   private DataContext _context;
 
   public ClientsController(DataContext context)
-    {
-        _context = context;
-    }
+    {_context = context;}
 
     [HttpGet] 
     public async Task<ActionResult<List<Client>>> getClients()

@@ -33,19 +33,22 @@ export class SignInComponent {
       modal.style.display = "block"; 
       document.getElementsByTagName("form")[0].style.opacity = "0.5";
     }
-    else if (this.clients.find(searchClient => searchClient.email == email).lastName == this.clients.find(searchClient => searchClient.password == password).lastName ) {
-      let role = this.clients.find(searchClient => searchClient.email == email).role
-      let id = this.clients.find(searchClient => searchClient.email == email).id
-      this.LoginService.access = true;
-      console.log("new ", this.LoginService.access)
+    else if (this.clients.find(searchClient => searchClient.email == email).id !== null ) {
+      let id_user = this.clients.find(searchClient => searchClient.email == email).id
+      if (this.clients.find(searchClient => searchClient.id == id_user).password == password) {
+        let role = this.clients.find(searchClient => searchClient.email == email).role
+        let id = this.clients.find(searchClient => searchClient.email == email).id
+        this.LoginService.access = true;
+        console.log("new ", this.LoginService.access)
 
-    if (role == "helper"){
-      this.router.navigate(['/helper-dashboard/:'+id]);
+      if (role == "helper"){
+        this.router.navigate(['/helper-dashboard/:'+id]);
+      }
+      if (role == "client"){
+        this.router.navigate(['/client-tasks/:'+id]);
+      }
     }
-    if (role == "client"){
-      this.router.navigate(['/client-tasks/:'+id]);
-    }
-  }
+  }  
     else{
     let modal = document.getElementById("modalWindowWarning");
     modal.style.display = "block"; 

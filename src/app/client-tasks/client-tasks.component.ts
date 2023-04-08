@@ -68,6 +68,7 @@ export class ClientTasksComponent {
     let modal = document.getElementById("modalWindowSuccess");
     modal.style.display = "none"; 
     document.getElementsByTagName("form")[0].style.opacity = "1";
+    location.reload();
   }
 
   doneTask(task : Task){
